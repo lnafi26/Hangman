@@ -130,12 +130,11 @@ def draw_hanged_man(wrong_guesses):
 
     print(hanged_man[wrong_guesses])
 
-def game_over(wrong_guesses, target_word, guessed_letters):
-    if wrong_guesses == MAX_INCORRECT_GUESSES:
-        return True
-    if set(target_word) <= guessed_letters:
-        return True
-    return False
+def game_over(guesses_taken, target_word, letters_guessed):
+    return (
+        guesses_taken == MAX_INCORRECT_GUESSES
+        or set(target_word) <= letters_guessed
+    )
 
 if __name__ == "__main__":
     # Initial setup
